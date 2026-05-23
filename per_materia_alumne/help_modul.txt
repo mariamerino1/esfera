@@ -1,0 +1,11 @@
+<input type="number" class="form-control ng-pristine ng-valid ng-empty ng-valid-min ng-valid-max ng-touched" min="1" max="10" step="1" ng-model-options="{ allowInvalid: true }" ng-keydown="blockNonInteger($event)" ng-change="alumne.qualificacioProv = maxTwoDigit(alumne.qualificacioProv)" onwheel="this.blur()" inputmode="numeric" style="width: 64px; margin: 0px 1px; text-align: center;" data-ng-model="alumne.qualificacioProv" data-ng-disabled="disabledQualificacioProv(alumne)" aria-invalid="false">
+
+<input name="qualitativa" data-ng-if="esCFP &amp;&amp; alumne.formatAvaluacioQuantitativa != null &amp;&amp; (!esBATX || alumne.formatAvaluacioQualitativa != null)" type="number" min="1" max="10" step="1" style="width: 7% !important; margin-left: 1px; margin-right: 1px; margin-bottom: 0px;" class="form-control ng-valid ng-scope ng-valid-min ng-valid-max ng-touched ng-dirty ng-valid-number ng-empty" ng-keydown="blockNonInteger($event)" ng-model-options="{ allowInvalid: true }" data-ng-change="onChangeQualitativa(el,alumne)" data-ng-disabled="disabledInputQuantitativa(el,alumne.asig)" data-ng-model="el.quantitativa" aria-invalid="false">
+
+<select data-ng-class="{ 'input-qualificacions-filled' : (el.dadoBaja &amp;&amp; !el.disabled)}" data-ng-if="el.type=='select' &amp;&amp; !alumne.esEpriEinf" data-ng-disabled="calcularDisabledQualitativa(el, alumne.asig)" class="form-control ng-valid ng-scope ng-touched ng-dirty ng-valid-parse ng-empty" data-ng-model="el.value" data-ng-options="op.codiCurtQualificacioQualitativa as op.nomQualificacioQualitativa for op in el.options" style="margin-left: 1px; margin-right: 1px; margin-bottom: 0px; width: 70%;" data-ng-change="onChangeSelectQualitativa(el,alumne)" data-ng-style="alumne.formatAvaluacioQuantitativa == null ? {'width':'100%'} : {'width':'70%'}" aria-invalid="false"><!-- ngIf: esCF --><option data-ng-if="esCF" value="" class="ng-scope"></option><!-- end ngIf: esCF --><option label="PQ-Pendent de qualificar" value="string:PQ">PQ-Pendent de qualificar</option><option label="NP-No presentat" value="string:NP">NP-No presentat</option></select>
+
+numèric provisional: data-ng-model="alumne.qualificacioProv"
+numèric definitiva: data-ng-model="el.quantitativa"
+PQ o NP data-ng-model="el.value"
+
+PQ i numèric provisional és possible
